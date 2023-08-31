@@ -1,6 +1,7 @@
 import FileUpload from '@/components/FileUpload'
 import StepWrapper from '@/components/StepWrapper'
 import { useInput } from '@/hooks/useInput'
+import $api from '@/http'
 import MainLayout from '@/layouts/MainLayout'
 import { Button, Grid, TextField } from '@mui/material'
 import axios from 'axios'
@@ -26,7 +27,8 @@ const CreateTrack = () => {
       body.append('text', lyrics.value)
       body.append('picture', picture || 'picture undefined')
       body.append('audio', audio || 'audio undefined')
-      axios
+      console.log(body)
+      $api
         .post('http://localhost:5000/tracks', body)
         .then(_ => router.push('/tracks'))
         .catch(e => console.log(e))

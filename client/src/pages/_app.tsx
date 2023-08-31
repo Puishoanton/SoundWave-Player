@@ -1,8 +1,8 @@
 import { AppProps } from 'next/app'
 import { FC } from 'react'
 import { Provider } from 'react-redux'
-import { persistor, wrapper } from '../store/index'
 import { PersistGate } from 'redux-persist/integration/react'
+import { persistor, wrapper } from '../store/index'
 
 const MyApp: FC<AppProps> = ({ Component, ...rest }) => {
   const { store, props } = wrapper.useWrappedStore(rest)

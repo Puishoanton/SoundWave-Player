@@ -23,8 +23,6 @@ const Track: FC<{ serverTrack: ITrack }> = ({ serverTrack }) => {
         trackId: track._id,
       })
       setTrack({ ...track, comments: [response.data, ...track.comments] })
-      // username.resetInput()
-      // comment.resetInput()
     } catch (e) {
       console.log(e)
     }

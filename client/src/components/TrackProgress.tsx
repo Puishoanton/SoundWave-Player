@@ -1,5 +1,5 @@
 import { formatTime } from '@/utils/formatTime'
-import { FC, ChangeEvent } from 'react'
+import { ChangeEvent, FC } from 'react'
 
 interface TrackProgressProps {
   current: number

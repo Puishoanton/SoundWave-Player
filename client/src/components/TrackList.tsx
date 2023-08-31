@@ -1,7 +1,7 @@
+import { ITrack } from '@/types/track'
+import { Box, Grid } from '@mui/material'
 import { FC } from 'react'
 import TrackItem from './TrackItem'
-import { ITrack } from '@/types/track'
-import { Grid, Box } from '@mui/material'
 
 const TrackList: FC<{ tracks: ITrack[] }> = ({ tracks }) => {
   return (

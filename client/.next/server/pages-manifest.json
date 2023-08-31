@@ -3,6 +3,8 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/tracks": "pages/tracks.js",
+  "/tracks/create": "pages/tracks/create.js",
   "/": "pages/index.js",
-  "/tracks/[id]": "pages/tracks/[id].js"
+  "/account/register": "pages/account/register.js",
+  "/account/login": "pages/account/login.js"
 }

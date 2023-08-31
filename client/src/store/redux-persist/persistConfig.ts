@@ -1,5 +1,5 @@
-import { stateTransfrom } from './transforms/stateTransfrom'
 import storage from 'redux-persist/lib/storage'
+import { stateTransfrom } from './transforms/stateTransfrom'
 
 export const persistConfig = {
   key: 'tracks',

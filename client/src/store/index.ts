@@ -1,9 +1,7 @@
-import { AnyAction, Store, ThunkDispatch, configureStore } from '@reduxjs/toolkit'
+import { AnyAction, Dispatch, Store, ThunkDispatch, configureStore } from '@reduxjs/toolkit'
 import { MakeStore, createWrapper } from 'next-redux-wrapper'
+import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE, persistStore } from 'redux-persist'
 import { RootState, persistedReducer } from './reducers'
-import thunk from 'redux-thunk'
-import { FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist'
-import { persistStore } from 'redux-persist'
 
 const store = configureStore({
   reducer: persistedReducer,
@@ -21,7 +19,7 @@ export const makeStore: MakeStore<Store<RootState>> = () => {
 
 export const persistor = persistStore(store)
 export type AppStore = ReturnType<typeof makeStore>
-export type AppDispatch = AppStore['dispatch']
+export type AppDispatch = ThunkDispatch<AppStore, null | undefined, AnyAction> & Dispatch<AnyAction>
 
 export const wrapper = createWrapper<Store<RootState>>(makeStore)
 

@@ -1,14 +1,13 @@
 import { useAppDispatch, useAppSelector } from '@/hooks/redux'
+import { deleteTrackAction } from '@/store/asyncActions/TrackActions'
 import { setActiveTrack, setIsTrackPlaying, setPreviousTrack } from '@/store/reducers/playerSlice'
 import { ITrack } from '@/types/track'
 import { Delete, Pause, PlayArrow } from '@mui/icons-material'
 import { Card, Grid, IconButton } from '@mui/material'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import { FC, useEffect, useState } from 'react'
+import { FC } from 'react'
 import styles from '../styles/TrackItem.module.scss'
-import { deleteTrackAction } from '@/store/asyncActions/deleteTrack'
-import { AsyncThunkAction } from '@reduxjs/toolkit'
 
 interface TrackItemProps {
   track: ITrack
@@ -31,9 +30,8 @@ const TrackItem: FC<TrackItemProps> = ({ track }) => {
 
   const deleteTrackhandler = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation()
-    dispatch(deleteTrackAction(track._id) as any)
+    dispatch(deleteTrackAction(track._id))
   }
-
   return (
     <Card className={styles.track} onClick={() => router.push(`/tracks/${track._id}`)}>
       <IconButton

@@ -7,12 +7,9 @@ import {
 } from '@/store/reducers/playerSlice'
 import { Pause, PlayArrow, VolumeUp } from '@mui/icons-material'
 import { Grid, IconButton } from '@mui/material'
-import { FC, useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import styles from '../styles/Player.module.scss'
 import TrackProgress from './TrackProgress'
-import { NextThunkDispatch, wrapper } from '@/store'
-import { ITrack } from '@/types/track'
-import { GetServerSideProps } from 'next'
 
 let audio: HTMLAudioElement
 

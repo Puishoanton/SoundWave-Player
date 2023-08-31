@@ -1,14 +1,16 @@
 import TrackList from '@/components/TrackList'
 import { useAppSelector } from '@/hooks/redux'
 import MainLayout from '@/layouts/MainLayout'
-import { fetchTracksAction } from '@/store/asyncActions/getTracksAction'
+import { authMiddleware } from '@/middleware/auth.middleware'
+import { fetchTracksAction } from '@/store/asyncActions/TrackActions'
 import { Box, Button, Card, Grid } from '@mui/material'
-import router from 'next/router'
-import { NextThunkDispatch, wrapper } from '../../store'
-import { GetServerSideProps } from 'next'
+import { GetServerSideProps, GetServerSidePropsContext } from 'next'
+import { useRouter } from 'next/router'
+import { AppStore, NextThunkDispatch, wrapper } from '../../store'
 
 const Tracks = () => {
   const { tracks, error } = useAppSelector(state => state.trackSlice)
+  const router = useRouter()
 
   if (error) {
     return (
@@ -38,10 +40,12 @@ const Tracks = () => {
 export default Tracks
 
 export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(
-  store => async () => {
+  (store: AppStore) => async (context: GetServerSidePropsContext) => {
+    console.log(context.req.headers)
     const dispatch = store.dispatch as NextThunkDispatch
     await dispatch(fetchTracksAction())
-
-    return { props: {} }
+    return {
+      props: {},
+    }
   }
 )

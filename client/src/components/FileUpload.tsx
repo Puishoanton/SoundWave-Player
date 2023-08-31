@@ -1,4 +1,4 @@
-import { ChangeEvent, Dispatch, FC, SetStateAction, useRef } from 'react'
+import { ChangeEvent, FC, useRef } from 'react'
 
 interface FileUploadProps {
   setFile: Function

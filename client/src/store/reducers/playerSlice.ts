@@ -1,6 +1,6 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 import { TPlayer } from '@/types/player'
 import { ITrack } from '@/types/track'
+import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
 export const playerInitialState: TPlayer = {
   currentTime: 0,

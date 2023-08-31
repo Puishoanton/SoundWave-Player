@@ -8,6 +8,7 @@ import {
   Query,
   UploadedFile,
   UploadedFiles,
+  UseGuards,
   UseInterceptors,
 } from '@nestjs/common'
 import { FileFieldsInterceptor } from '@nestjs/platform-express'
@@ -15,8 +16,10 @@ import { ObjectId } from 'mongoose'
 import { CreateCommentDto } from './dto/create.comment.dto'
 import { CreateTrackDto } from './dto/create.track.dto'
 import { TrackService } from './track.service'
+import { AuthGuard } from '@nestjs/passport'
 
 @Controller('tracks')
+// @UseGuards(AuthGuard('jwt'))
 export class TrackController {
   constructor(private trackService: TrackService) {}
 

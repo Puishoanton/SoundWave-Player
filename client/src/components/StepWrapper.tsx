@@ -1,5 +1,5 @@
-import { Card, Container, Grid, Step, StepLabel, Stepper } from '@mui/material'
-import React, { FC } from 'react'
+import { Card, Container, Grid, Step, StepLabel, Stepper } from '@mui/material';
+import { FC } from 'react';
 
 const steps = ['Track info', 'Track picture', 'Track audio']
 
